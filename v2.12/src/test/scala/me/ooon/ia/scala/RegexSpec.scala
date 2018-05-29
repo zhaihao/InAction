@@ -69,4 +69,25 @@ class RegexSpec extends BaseSpec {
     f("哈哈 36期 哈哈 本期应还款3000.0.余期为4期哈哈") ==> ("36", "3000.0", "4")
     f("哈哈 36期 哈哈 本期应还款3000.余期为4期哈哈")   ==> ("36", "3000", "4")
   }
+
+  "词组匹配" - {
+
+    "1" in {
+      // language=RegExp
+      val regex    = """.*(中国|日本).*""".r
+      val regex(s) = "你好中国"
+      s ==> "中国"
+    }
+
+    "2" in {
+      // language=RegExp
+      val regex       = """.*(\d+)-(\d+)(?:个体|号).*""".r
+      val regex(m, n) = "3-12个体"
+      (m, n) ==> ("3", "12")
+
+      assertThrows[MatchError] {
+        val regex(_, _) = "3-12个"
+      }
+    }
+  }
 }
