@@ -33,5 +33,7 @@ object Dependencies {
   val slick_hikaricp  = "com.typesafe.slick"         %% "slick-hikaricp"      % "3.2.2"
   val slick_codegen   = "com.typesafe.slick"         %% "slick-codegen"       % "3.2.2"
   val scala_logging   = "com.typesafe.scala-logging" %% "scala-logging"       % "3.8.0"
+  val h2              = "com.h2database"             % "h2"                   % "1.4.197" % Test
+  val logback         = "ch.qos.logback"             % "logback-classic"      % "1.2.3"
 
 }

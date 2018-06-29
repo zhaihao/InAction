@@ -24,7 +24,14 @@ lazy val `v2-12` = (project in file("v2.12"))
     scalaVersion := "2.12.6",
     libraryDependencies ++= Seq(
       upickle,
-      scopt
+      scopt,
+      mysql,
+      h2,
+      slick,
+      slick_codegen,
+      slick_hikaricp,
+      scala_logging,
+      logback
     )
   )
 

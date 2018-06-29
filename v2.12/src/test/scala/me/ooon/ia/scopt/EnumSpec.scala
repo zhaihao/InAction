@@ -9,6 +9,7 @@ package me.ooon.ia.scopt
 
 import me.ooon.orison.base.test.BaseSpec
 import me.ooon.orison.base.syntax.string._
+import scala.language.postfixOps
 
 /**
   * EnumSpec
