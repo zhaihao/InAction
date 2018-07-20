@@ -8,9 +8,9 @@
 * JSON lib
     * [upickle](v2.12/src/test/scala/me/ooon/ia/upickle)
     
+* [Akka](v2.12/src/test/scala/me/ooon/ia/akka)
     
-* Spark
-    * [1](v2.11/src/test/scala/me/ooon/ia/spark)
+* [Spark](v2.11/src/test/scala/me/ooon/ia/spark)
     
 * 命令行解析
     * [scopt](v2.12/src/test/scala/me/ooon/ia/scopt)
