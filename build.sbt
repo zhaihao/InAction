@@ -31,7 +31,9 @@ lazy val `v2-12` = (project in file("v2.12"))
       slick_codegen,
       slick_hikaricp,
       scala_logging,
-      logback
+      logback,
+      akka_actor,
+      akka_testkit
     )
   )
 
