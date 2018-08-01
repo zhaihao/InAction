@@ -38,4 +38,5 @@ object Dependencies {
   lazy val logback         = "ch.qos.logback"             % "logback-classic"      % "1.2.3"
   lazy val akka_actor      = "com.typesafe.akka"          %% "akka-actor"          % akka_version
   lazy val akka_testkit    = "com.typesafe.akka"          %% "akka-testkit"        % akka_version % Test
+  lazy val better_file     = "com.github.pathikrit"       %% "better-files"        % "3.6.0"
 }
