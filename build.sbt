@@ -33,7 +33,8 @@ lazy val `v2-12` = (project in file("v2.12"))
       scala_logging,
       logback,
       akka_actor,
-      akka_testkit
+      akka_testkit,
+      better_file
     )
   )
 

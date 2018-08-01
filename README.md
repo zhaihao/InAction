@@ -4,6 +4,7 @@
 
 * Scala 语法
     * [正则](v2.12/src/test/scala/me/ooon/ia/scala/RegexSpec.scala)
+    * [文件 IO](v2.12/src/test/scala/me/ooon/ia/better/file)
 
 * JSON lib
     * [upickle](v2.12/src/test/scala/me/ooon/ia/upickle)
