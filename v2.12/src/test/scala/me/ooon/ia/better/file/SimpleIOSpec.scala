@@ -44,7 +44,7 @@ class SimpleIOSpec extends BaseSpec with TestFileLike {
     file.contentAsString ==> "hello world\n"
   }
 
-  "called chain" in {
+  "fluent chain" in {
     import File._
     val file = testFile.toScala
 

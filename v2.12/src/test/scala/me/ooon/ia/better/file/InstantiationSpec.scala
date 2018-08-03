@@ -51,6 +51,12 @@ class InstantiationSpec extends BaseSpec {
     file2 ==> file
   }
 
+  "using temp helper to start from home" in {
+    import File._
+    val file2 = temp
+    file2.path.toString + "/" ==> System.getProperty("java.io.tmpdir")
+  }
+
   "using file separator DSL" in {
     val file2 = "/Users" / name / "Code"
     file2 ==> file
