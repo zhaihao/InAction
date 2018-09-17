@@ -8,7 +8,7 @@
 package me.ooon.ia.akka.routing
 
 import akka.actor.{Actor, ActorSystem, Props, Terminated}
-import akka.routing.{ActorRefRoutee, RoundRobinRoutingLogic, Router}
+import akka.routing._
 import akka.testkit.TestKit
 import me.ooon.orison.base.test.BaseSpecLike
 
@@ -22,11 +22,13 @@ import me.ooon.orison.base.test.BaseSpecLike
   */
 class RouterInActorSpec extends TestKit(ActorSystem()) with BaseSpecLike {
   "router in actor" in {
-    val master = system.actorOf(Props[Master],"master")
+    val master = system.actorOf(Props[Master], "master")
     for (i <- 0 to 20) {
       val m = Work(i.toString)
       master ! m
     }
+
+    expectNoMessage()
   }
 }
 
@@ -41,7 +43,7 @@ class Master extends Actor {
       ActorRefRoutee(r)
     }
 
-    Router(RoundRobinRoutingLogic(), routees)
+    Router(new RoundRobinRoutingLogic, routees)
   }
 
   override def receive = {
