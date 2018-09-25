@@ -34,7 +34,11 @@ lazy val `v2-12` = (project in file("v2.12"))
       logback,
       akka_actor,
       akka_testkit,
-      better_file
+      akka_persistence,
+      akka_cluster,
+      better_file,
+      playIteratees,
+      playIterateesReactiveStreams
     )
   )
 
