@@ -25,6 +25,7 @@ object Dependencies {
   lazy val spark_sql                    = "org.apache.spark"           %% "spark-sql"                       % spark_version
   lazy val spark_mllib                  = "org.apache.spark"           %% "spark-mllib"                     % spark_version
   lazy val spark_streaming              = "org.apache.spark"           %% "spark-streaming"                 % spark_version
+  lazy val graphframes                  = "graphframes"                % "graphframes"                      % "0.6.0-spark2.2-s_2.11"
   lazy val vegas                        = "org.vegas-viz"              %% "vegas"                           % "0.3.11"
   lazy val vegas_spark                  = "org.vegas-viz"              %% "vegas-spark"                     % "0.3.11"
   lazy val redisclient                  = "net.debasishg"              %% "redisclient"                     % "3.4"

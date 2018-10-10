@@ -5,6 +5,7 @@ lazy val CommonSettings = Seq(
   name         := "ScalaInAction",
   scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature", "-Xfatal-warnings"),
   resolvers += "Local Maven Repository" at "file://" + Path.userHome.absolutePath + "/.m2/repository",
+  resolvers += "spark-packages" at "https://dl.bintray.com/spark-packages/maven",
   resolvers += Resolver.url("ooon ivy repo", url("http://repo.ooon.me/release"))(
     Resolver.ivyStylePatterns),
   externalResolvers := Resolver
@@ -52,6 +53,7 @@ lazy val `v2-11` = (project in file("v2.11"))
       spark_sql,
       spark_mllib,
       spark_streaming,
+      graphframes,
       vegas,
       vegas_spark,
       redisclient,
