@@ -17,7 +17,10 @@ import me.ooon.ia.spark.SparkBaseSpec
   */
 class QuickStartSpec extends SparkBaseSpec {
 
-  "quick start" in {
+  "quick start" - {
+    // 创建 GraphFrame
+
+    // 定点，必须有 id 列
     val v = spark
       .createDataFrame(
         List(
@@ -27,6 +30,7 @@ class QuickStartSpec extends SparkBaseSpec {
         ))
       .toDF("id", "name", "age")
 
+    // 边，必须有 src dst 列
     val e = spark
       .createDataFrame(
         List(
@@ -39,13 +43,32 @@ class QuickStartSpec extends SparkBaseSpec {
     import org.graphframes.GraphFrame
     val g = GraphFrame(v, e)
 
-    g.inDegrees.show()
+    "查看定点 frame" in {
+      g.vertices.show()
+    }
 
-    // Query: Count the number of "follow" connections in the graph.
-    println(g.edges.filter("relationship = 'follow'").count())
+    "查看边 frame" in {
+      g.edges.show()
+    }
 
-    // Run PageRank algorithm, and show results.
-    val results = g.pageRank.resetProbability(0.01).maxIter(10).run()
-    results.vertices.select("id", "pagerank").show()
+    "查询入度" in {
+      g.inDegrees.show()
+    }
+
+    "查询出度" in {
+      g.outDegrees.show()
+    }
+
+    "查询 follow 关系数量" in {
+      val count = g.edges.filter("relationship = 'follow'").count()
+      println(count)
+    }
+
+    "执行 PageRank 计算" in {
+      val pr = g.pageRank.resetProbability(0.01).maxIter(3).run()
+
+      pr.vertices.show()
+      pr.edges.show()
+    }
   }
 }
