@@ -7,8 +7,8 @@
 
 package me.ooon.ia.scopt
 
-import me.ooon.orison.base.test.BaseSpec
-import me.ooon.orison.base.syntax.string._
+import me.ooon.base.test.BaseSpec
+import me.ooon.base.syntax.string._
 import scala.language.postfixOps
 
 /**

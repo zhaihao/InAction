@@ -8,7 +8,7 @@
 package me.ooon.ia.slick._004
 
 import com.typesafe.scalalogging.StrictLogging
-import me.ooon.orison.base.test.BaseAsyncSpec
+import me.ooon.base.test.BaseAsyncSpec
 import org.scalatest.BeforeAndAfter
 import slick.jdbc.H2Profile.api._
 

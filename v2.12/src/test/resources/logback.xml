@@ -7,7 +7,7 @@
 
 <configuration>
 
-    <conversionRule conversionWord="coloredLevel" converterClass="me.ooon.orison.base.log.logback.ColoredLevel"/>
+    <conversionRule conversionWord="coloredLevel" converterClass="me.ooon.base.log.logback.ColoredLevel"/>
 
     <!--<appender name="FILE" class="ch.qos.logback.core.FileAppender">-->
     <!--<file>${application.home:-.}/logs/application.log</file>-->

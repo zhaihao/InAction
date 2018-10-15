@@ -7,7 +7,7 @@
 
 package me.ooon.ia.scala
 
-import me.ooon.orison.base.test.BaseSpec
+import me.ooon.base.test.BaseSpec
 
 /**
   * RegexSpec

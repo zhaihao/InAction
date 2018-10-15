@@ -19,7 +19,7 @@ object Dependencies {
   val akka_version  = "2.5.14"
 
   lazy val scopt                        = "com.github.scopt"           %% "scopt"                           % "3.7.0"
-  lazy val orison                       = "me.ooon"                    %% "orison-base"                     % "1.0.21"
+  lazy val base                         = "me.ooon"                    %% "base"                            % "1.0.25"
   lazy val scalatest                    = "org.scalatest"              %% "scalatest"                       % "3.0.4" % Test
   lazy val spark_core                   = "org.apache.spark"           %% "spark-core"                      % spark_version
   lazy val spark_sql                    = "org.apache.spark"           %% "spark-sql"                       % spark_version

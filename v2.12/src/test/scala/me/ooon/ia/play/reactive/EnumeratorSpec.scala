@@ -11,7 +11,7 @@ import java.io.File
 import java.util.Date
 
 import akka.actor.ActorSystem
-import me.ooon.orison.base.test.BaseAsyncSpec
+import me.ooon.base.test.BaseAsyncSpec
 import play.api.libs.iteratee.{Concurrent, Enumeratee, Enumerator, Iteratee}
 
 import scala.concurrent.Future

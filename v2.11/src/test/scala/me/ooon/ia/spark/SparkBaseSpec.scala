@@ -7,7 +7,7 @@
 
 package me.ooon.ia.spark
 
-import me.ooon.orison.base.test.BaseSpec
+import me.ooon.base.test.BaseSpec
 import org.apache.spark.sql.SparkSession
 
 /**

@@ -8,7 +8,7 @@
 package me.ooon.ia.spark
 
 import java.io.File
-import me.ooon.orison.base.syntax.file._
+import me.ooon.base.syntax.file._
 
 /**
   * TmpFileSpec

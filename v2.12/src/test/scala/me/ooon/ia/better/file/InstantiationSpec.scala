@@ -7,7 +7,7 @@
 
 package me.ooon.ia.better.file
 
-import me.ooon.orison.base.test.BaseSpec
+import me.ooon.base.test.BaseSpec
 
 /**
   * InstantiationSpec

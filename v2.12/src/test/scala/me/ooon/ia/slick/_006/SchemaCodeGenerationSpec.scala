@@ -11,7 +11,7 @@ import java.io.File
 
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.StrictLogging
-import me.ooon.orison.base.test.BaseAsyncSpec
+import me.ooon.base.test.BaseAsyncSpec
 import slick.codegen.SourceCodeGenerator
 import slick.jdbc.MySQLProfile
 import slick.jdbc.MySQLProfile.api._

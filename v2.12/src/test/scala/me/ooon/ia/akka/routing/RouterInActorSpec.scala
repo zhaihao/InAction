@@ -10,7 +10,7 @@ package me.ooon.ia.akka.routing
 import akka.actor.{Actor, ActorSystem, Props, Terminated}
 import akka.routing._
 import akka.testkit.TestKit
-import me.ooon.orison.base.test.BaseSpecLike
+import me.ooon.base.test.BaseSpecLike
 
 /**
   * RouterInActorSpec

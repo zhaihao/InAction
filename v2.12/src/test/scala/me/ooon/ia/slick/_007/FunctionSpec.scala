@@ -8,7 +8,7 @@
 package me.ooon.ia.slick._007
 
 import com.typesafe.scalalogging.StrictLogging
-import me.ooon.orison.base.test.BaseAsyncSpec
+import me.ooon.base.test.BaseAsyncSpec
 import me.ooon.ia.slick.Tables._
 import me.ooon.ia.slick.mysql.DB
 import org.scalatest.BeforeAndAfter

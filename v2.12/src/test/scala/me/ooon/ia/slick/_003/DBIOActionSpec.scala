@@ -9,7 +9,7 @@ package me.ooon.ia.slick._003
 
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.StrictLogging
-import me.ooon.orison.base.test.BaseAsyncSpec
+import me.ooon.base.test.BaseAsyncSpec
 import me.ooon.ia.slick._001.Tables.{coffees, suppliers}
 import org.scalatest.BeforeAndAfter
 import slick.basic.DatabasePublisher

@@ -11,7 +11,7 @@ lazy val CommonSettings = Seq(
   externalResolvers := Resolver
     .combineDefaultResolvers(resolvers.value.toVector, mavenCentral = true),
   libraryDependencies ++= Seq(
-    orison,
+    base,
     scalatest,
   )
 )

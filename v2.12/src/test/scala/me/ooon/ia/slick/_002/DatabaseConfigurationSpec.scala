@@ -7,7 +7,7 @@
 
 package me.ooon.ia.slick._002
 
-import me.ooon.orison.base.test.BaseSpec
+import me.ooon.base.test.BaseSpec
 import org.scalatest.BeforeAndAfter
 
 /**
