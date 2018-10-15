@@ -8,6 +8,7 @@
 package me.ooon.ia.spark.graphframe.dataframe
 import me.ooon.base.test.TestFolderLike
 import me.ooon.ia.spark.SparkBaseSpec
+import org.graphframes.lib.AggregateMessages
 
 /**
   * UserGuideSpec
@@ -47,8 +48,6 @@ class UserGuideSpec extends SparkBaseSpec with TestFolderLike {
     .toDF("src", "dst", "relationship")
 
   val g = GraphFrame(v, e)
-
-  g.triplets.show()
 
   "创建 graph frame" - {
     "根据 Vertex DataFrame 和 Edge DataFrame 创建" in {
@@ -182,16 +181,67 @@ class UserGuideSpec extends SparkBaseSpec with TestFolderLike {
       "personalized PageRank" in {
         g.pageRank.resetProbability(0.15).maxIter(10).sourceId("a").run().triplets.show(false)
 
-//        g.parallelPersonalizedPageRank
-//          .resetProbability(0.15)
-//          .maxIter(10)
-//          .sourceIds(Array("a", "b", "c", "d"))
-//          .run()
-//          .triplets
-//          .show(false)
-
+        // https://github.com/graphframes/graphframes/blob/dc11c4a7c1b94cfe801f8480e6ea5c64064a8b99/src/test/scala/org/graphframes/lib/ParallelPersonalizedPageRankSuite.scala#L79
+        // spark 2.2 无法使用
+        // spark 2.4 将会修复
+        assertThrows[IllegalArgumentException] {
+          g.parallelPersonalizedPageRank
+            .resetProbability(0.15)
+            .maxIter(10)
+            .sourceIds(Array("a", "b", "c", "d"))
+            .run
+        }
       }
+
     }
 
+    "svd++" in {
+      val g1 = org.graphframes.examples.Graphs.ALSSyntheticData()
+      g1.triplets.show()
+      g1.svdPlusPlus.maxIter(2).run().show()
+    }
+
+    "Shortest paths" in {
+      g.shortestPaths.landmarks(Seq("a", "d")).run().show(false)
+    }
+
+    "Triangle count" in {
+      g.triangleCount.run().show(false)
+    }
+
+  }
+
+  "Saving and loading GraphFrames" in {
+    g.vertices.write.parquet(testFolder.getPath + "/myLocation/vertices")
+    g.edges.write.parquet(testFolder.getPath + "/myLocation/edges")
+
+    val v1 = spark.read.parquet(testFolder.getPath + "/myLocation/vertices")
+    val e1 = spark.read.parquet(testFolder.getPath + "/myLocation/edges")
+
+    val g1 = GraphFrame(v1, e1)
+    g1.triplets.show(false)
+  }
+
+  "Message passing via AggregateMessages" in {
+    import org.apache.spark.sql.functions._
+    val AM       = AggregateMessages
+    val msgToSrc = AM.dst("age")
+    val msgToDst = AM.src("age")
+    // 不包含自身的age
+    g.aggregateMessages
+      .sendToDst(msgToDst)
+      .sendToSrc(msgToSrc)
+      .agg(sum(AM.msg).as("summedAge"))
+      .show(false)
+  }
+
+  "GraphX-GraphFrame conversions" in {
+    import org.apache.spark.graphx.Graph
+    import org.apache.spark.sql.Row
+    val gx: Graph[Row, Row] = g.toGraphX
+    assertThrows[UnsupportedOperationException] {
+      val g2 = GraphFrame.fromGraphX(gx)
+      g2.triplets.show(false)
+    }
   }
 }
