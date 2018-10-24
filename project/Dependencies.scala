@@ -44,4 +44,7 @@ object Dependencies {
   lazy val better_file                  = "com.github.pathikrit"       %% "better-files"                    % "3.6.0"
   lazy val playIteratees                = "com.typesafe.play"          %% "play-iteratees"                  % "2.6.1"
   lazy val playIterateesReactiveStreams = "com.typesafe.play"          %% "play-iteratees-reactive-streams" % "2.6.1"
+  
+  
+  lazy val cats = Seq("org.typelevel" %% "cats-core" % "1.4.0")
 }

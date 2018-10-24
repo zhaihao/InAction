@@ -40,7 +40,8 @@ lazy val `v2-12` = (project in file("v2.12"))
       better_file,
       playIteratees,
       playIterateesReactiveStreams
-    )
+    ),
+    libraryDependencies ++= cats
   )
 
 lazy val `v2-11` = (project in file("v2.11"))
