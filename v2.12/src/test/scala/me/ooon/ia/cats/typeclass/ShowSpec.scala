@@ -21,7 +21,7 @@ class ShowSpec extends BaseSpec {
 
   "show instance" in {
     import cats.instances.int._
-    val showInt = Show.apply[Int]
+    val showInt = Show[Int]
 
     showInt.show(123) ==> "123"
   }
