@@ -27,20 +27,15 @@ lazy val `v2-12` = (project in file("v2.12"))
       upickle,
       mysql,
       h2,
-      slick,
-      slick_codegen,
-      slick_hikaricp,
       scala_logging,
       logback,
-      akka_actor,
-      akka_testkit,
-      akka_persistence,
-      akka_cluster,
       better_file,
       playIteratees,
       playIterateesReactiveStreams
     ),
-    libraryDependencies ++= cats
+    libraryDependencies ++= cats,
+    libraryDependencies ++= slick,
+    libraryDependencies ++= akka
   )
 
 lazy val `v2-11` = (project in file("v2.11"))
@@ -49,7 +44,6 @@ lazy val `v2-11` = (project in file("v2.11"))
     version      := "1.0.0",
     scalaVersion := "2.11.11",
     libraryDependencies ++= spark,
-    
     libraryDependencies ++= Seq(
       xgboost_spark,
       graphframes,
