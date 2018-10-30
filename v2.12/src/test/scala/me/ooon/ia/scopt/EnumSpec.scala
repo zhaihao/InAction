@@ -7,8 +7,10 @@
 
 package me.ooon.ia.scopt
 
-import me.ooon.base.test.BaseSpec
+import me.ooon.base.scopt
 import me.ooon.base.syntax.string._
+import me.ooon.base.test.BaseSpec
+
 import scala.language.postfixOps
 
 /**
@@ -47,8 +49,8 @@ object ConfigEnv {
     help("help") text "display this message"
     version("version") text "display version info".newline
 
-    opt[Env.Value]('e', "env") action { (x, c) =>
-      c.copy(env = x)
+    opt[Env.Value]('e', "env") action {
+      (x, c) => c.copy(env = x)
     } text s"The possible values can be ${Env.values.mkString("\"", "\", \"", "\"")}"
   }
 }

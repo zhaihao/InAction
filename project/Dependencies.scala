@@ -15,16 +15,20 @@ import sbt._
   */
 object Dependencies {
 
-  val spark_version = "2.2.0"
+  val spark_version = "2.3.2"
   val akka_version  = "2.5.14"
 
-  lazy val scopt                        = "com.github.scopt"           %% "scopt"                           % "3.7.0"
-  lazy val base                         = "me.ooon"                    %% "base"                            % "1.0.25"
-  lazy val scalatest                    = "org.scalatest"              %% "scalatest"                       % "3.0.4" % Test
-  lazy val spark_core                   = "org.apache.spark"           %% "spark-core"                      % spark_version
-  lazy val spark_sql                    = "org.apache.spark"           %% "spark-sql"                       % spark_version
-  lazy val spark_mllib                  = "org.apache.spark"           %% "spark-mllib"                     % spark_version
-  lazy val spark_streaming              = "org.apache.spark"           %% "spark-streaming"                 % spark_version
+  lazy val base      = "me.ooon"       %% "base"      % "1.0.27"
+  lazy val scalatest = "org.scalatest" %% "scalatest" % "3.0.4" % Test
+
+  lazy val spark = Seq(
+    "org.apache.spark" %% "spark-core"      % spark_version,
+    "org.apache.spark" %% "spark-sql"       % spark_version,
+    "org.apache.spark" %% "spark-mllib"     % spark_version,
+    "org.apache.spark" %% "spark-streaming" % spark_version
+  )
+
+  lazy val xgboost_spark = "ml.dmlc" % "xgboost4j-spark" % "0.80"
   lazy val graphframes                  = "graphframes"                % "graphframes"                      % "0.6.0-spark2.2-s_2.11"
   lazy val vegas                        = "org.vegas-viz"              %% "vegas"                           % "0.3.11"
   lazy val vegas_spark                  = "org.vegas-viz"              %% "vegas-spark"                     % "0.3.11"
@@ -44,7 +48,6 @@ object Dependencies {
   lazy val better_file                  = "com.github.pathikrit"       %% "better-files"                    % "3.6.0"
   lazy val playIteratees                = "com.typesafe.play"          %% "play-iteratees"                  % "2.6.1"
   lazy val playIterateesReactiveStreams = "com.typesafe.play"          %% "play-iteratees-reactive-streams" % "2.6.1"
-  
-  
+
   lazy val cats = Seq("org.typelevel" %% "cats-core" % "1.4.0")
 }

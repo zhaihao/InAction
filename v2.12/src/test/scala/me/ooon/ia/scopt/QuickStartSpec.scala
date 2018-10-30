@@ -7,8 +7,9 @@
 
 package me.ooon.ia.scopt
 
-import me.ooon.base.test.BaseSpec
+import me.ooon.base.scopt
 import me.ooon.base.syntax.string._
+import me.ooon.base.test.BaseSpec
 
 /**
   * QuickStartSpec
@@ -38,6 +39,7 @@ case class Config(foo:       Int = -1,
                   kwArgs:    Map[String, String] = Map())
 
 object Config {
+
   val parser = new scopt.OptionParser[Config]("scopt") {
     head("scopt", "3.x")
 
