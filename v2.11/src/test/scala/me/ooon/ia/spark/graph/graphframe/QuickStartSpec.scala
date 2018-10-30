@@ -5,7 +5,7 @@
  * Please visit http://ooon.me or mail to zhaihao@ooon.me
  */
 
-package me.ooon.ia.spark.graphframe.dataframe
+package me.ooon.ia.spark.graph.graphframe
 
 import me.ooon.ia.spark.SparkBaseSpec
 
