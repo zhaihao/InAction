@@ -7,7 +7,7 @@
 
 package me.ooon.ia.spark.mllib.datatype
 
-import org.apache.spark.mllib.linalg.{Matrices, Matrix, SparseMatrix}
+import org.apache.spark.mllib.linalg.{DenseMatrix, Matrices, Matrix, SparseMatrix}
 import org.scalatest.FreeSpec
 
 /**
@@ -33,7 +33,9 @@ class LocalMatrixSpec extends FreeSpec {
 
   "稀疏矩阵和稠密矩阵可以互相转换" in {
     val sm: Matrix = Matrices.sparse(3, 2, Array(0, 1, 3), Array(0, 2, 1), Array(9, 6, 8))
+    val dm = Matrices.dense(3, 2, Array(1.0, 3.0, 5.0, 2.0, 4.0, 6.0))
     println(s"sm = \n$sm")
     println(s"dm = \n${sm.asInstanceOf[SparseMatrix].toDense}")
+    println(s"sm = \n${dm.asInstanceOf[DenseMatrix].toSparse}")
   }
 }
