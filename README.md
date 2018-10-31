@@ -13,8 +13,9 @@
     
 * [Spark](v2.11/src/test/scala/me/ooon/ia/spark)
     * [graph](v2.11/src/test/scala/me/ooon/ia/spark/graph)
-        * [graphx](v2.11/src/test/scala/me/ooon/ia/spark/graph/graphx)
         * [graphframe](v2.11/src/test/scala/me/ooon/ia/spark/graph/graphframe)
+    * [mllib](v2.11/src/test/scala/me/ooon/ia/spark/mllib)
+        * [datatype](v2.11/src/test/scala/me/ooon/ia/spark/mllib/datatype)
     
 * 命令行解析
     * [scopt](v2.12/src/test/scala/me/ooon/ia/scopt)
