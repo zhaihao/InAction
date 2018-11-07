@@ -31,7 +31,8 @@ lazy val `v2-12` = (project in file("v2.12"))
       logback,
       better_file,
       playIteratees,
-      playIterateesReactiveStreams
+      playIterateesReactiveStreams,
+      scraper
     ),
     libraryDependencies ++= cats,
     libraryDependencies ++= slick,

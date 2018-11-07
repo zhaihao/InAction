@@ -41,13 +41,14 @@ object Dependencies {
     "com.typesafe.slick" %% "slick-codegen"  % "3.2.2"
   )
 
-  lazy val xgboost_spark = "ml.dmlc"       % "xgboost4j-spark"      % "0.80"
-  lazy val graphframes   = "graphframes"   % "graphframes"          % "0.6.0-spark2.2-s_2.11"
-  lazy val vegas         = "org.vegas-viz" %% "vegas"               % "0.3.11"
-  lazy val vegas_spark   = "org.vegas-viz" %% "vegas-spark"         % "0.3.11"
-  lazy val redisclient   = "net.debasishg" %% "redisclient"         % "3.4"
-  lazy val mysql         = "mysql"         % "mysql-connector-java" % "6.0.6"
-  lazy val upickle       = "com.lihaoyi"   %% "upickle"             % "0.6.5"
+  lazy val xgboost_spark = "ml.dmlc"          % "xgboost4j-spark"      % "0.80"
+  lazy val graphframes   = "graphframes"      % "graphframes"          % "0.6.0-spark2.2-s_2.11"
+  lazy val vegas         = "org.vegas-viz"    %% "vegas"               % "0.3.11"
+  lazy val vegas_spark   = "org.vegas-viz"    %% "vegas-spark"         % "0.3.11"
+  lazy val redisclient   = "net.debasishg"    %% "redisclient"         % "3.4"
+  lazy val mysql         = "mysql"            % "mysql-connector-java" % "6.0.6"
+  lazy val upickle       = "com.lihaoyi"      %% "upickle"             % "0.6.5"
+  lazy val scraper       = "net.ruippeixotog" %% "scala-scraper"       % "2.1.0"
 
   lazy val scala_logging = "com.typesafe.scala-logging" %% "scala-logging"  % "3.8.0"
   lazy val h2            = "com.h2database"             % "h2"              % "1.4.197" % Test
