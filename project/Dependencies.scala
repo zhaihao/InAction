@@ -42,7 +42,7 @@ object Dependencies {
   )
 
   lazy val xgboost_spark = "ml.dmlc"          % "xgboost4j-spark"      % "0.80"
-  lazy val graphframes   = "graphframes"      % "graphframes"          % "0.6.0-spark2.2-s_2.11"
+  lazy val graphframes = "org.graphframes" % "graphframes_2.11" % "0.7.0-spark2.3-SNAPSHOT"
   lazy val vegas         = "org.vegas-viz"    %% "vegas"               % "0.3.11"
   lazy val vegas_spark   = "org.vegas-viz"    %% "vegas-spark"         % "0.3.11"
   lazy val redisclient   = "net.debasishg"    %% "redisclient"         % "3.4"

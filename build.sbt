@@ -5,7 +5,6 @@ lazy val CommonSettings = Seq(
   name         := "scalaia",
   scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature", "-Xfatal-warnings"),
   resolvers += "Local Maven Repository" at "file://" + Path.userHome.absolutePath + "/.m2/repository",
-  resolvers += "spark-packages" at "https://dl.bintray.com/spark-packages/maven",
   resolvers += Resolver.url("ooon ivy repo", url("http://repo.ooon.me/release"))(
     Resolver.ivyStylePatterns),
   externalResolvers := Resolver
