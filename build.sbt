@@ -51,5 +51,8 @@ lazy val `v2-11` = (project in file("v2.11"))
       vegas_spark,
       redisclient,
       mysql
+    ),
+    excludeDependencies ++= Seq(
+      "commons-codec" % "commons-codec" % "2.0-SNAPSHOT"
     )
   )
