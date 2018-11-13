@@ -21,7 +21,7 @@ lazy val `v2-12` = (project in file("v2.12"))
   .settings(CommonSettings)
   .settings(
     version      := "1.0.0",
-    scalaVersion := "2.12.6",
+    scalaVersion := "2.12.7",
     libraryDependencies ++= Seq(
       upickle,
       mysql,
@@ -35,7 +35,8 @@ lazy val `v2-12` = (project in file("v2.12"))
     ),
     libraryDependencies ++= cats,
     libraryDependencies ++= slick,
-    libraryDependencies ++= akka
+    libraryDependencies ++= akka,
+    libraryDependencies ++= breeze
   )
 
 lazy val `v2-11` = (project in file("v2.11"))
@@ -51,8 +52,5 @@ lazy val `v2-11` = (project in file("v2.11"))
       vegas_spark,
       redisclient,
       mysql
-    ),
-    excludeDependencies ++= Seq(
-      "commons-codec" % "commons-codec" % "2.0-SNAPSHOT"
     )
   )

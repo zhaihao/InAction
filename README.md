@@ -22,3 +22,9 @@
     
 * 数据库交互
     * [slick](v2.12/src/test/scala/me/ooon/ia/slick)
+    
+* 线性代数
+    * [breeze](v2.12/src/test/scala/me/ooon/ia/breeze)
+    
+* 其他
+    * [网易公开课批量下载](v2.12/src/test/scala/me/ooon/ia/open163/DownloadClassVideo.scala)
