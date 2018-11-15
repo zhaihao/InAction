@@ -82,14 +82,35 @@ class DistributedMatrixSpec extends SparkBaseSpec {
     * 坐标矩阵一般在矩阵的两个维度都很大，且矩阵非常稀疏的时候使用。
     * CoordinateMatrix实例可通过RDD[MatrixEntry]实例来创建，其中每一个矩阵项都是一个(rowIndex, colIndex, elem)的三元组：
     */
-  "CoordinateMatrix" in {
-    val entry  = MatrixEntry(0, 1, 1.0)
-    val entry1 = MatrixEntry(2, 2, 2.0)
-    val rdd1   = sc.parallelize(Array(entry, entry1))
-    val matrix = new CoordinateMatrix(rdd1)
-    matrix.entries.foreach(println)
-    val tm = matrix.transpose() // 转置
-    tm.entries.foreach(println)
+  "CoordinateMatrix" - {
+    "create" in {
+      val entry  = MatrixEntry(0, 1, 1.0)
+      val entry1 = MatrixEntry(2, 2, 2.0)
+      val rdd1   = sc.parallelize(Array(entry, entry1))
+      val matrix = new CoordinateMatrix(rdd1)
+      matrix.entries.foreach(println)
+      val tm = matrix.transpose() // 转置
+      tm.entries.foreach(println)
+    }
+
+    "create via df" in {
+      import spark.implicits._
+
+      val df = List(
+        (1, 2, 3.0),
+        (1, 3, 4.0),
+        (2, 5, 2.0)
+      ).toDF("id1", "id2", "val")
+
+      df.show()
+
+      val rdd: RDD[MatrixEntry] =
+        df.rdd.map(r => MatrixEntry(r.getInt(0), r.getInt(1), r.getDouble(2)))
+      val tm = new CoordinateMatrix(rdd)
+      tm.entries.foreach(println)
+      println(tm.numCols())
+      println(tm.numRows())
+    }
   }
 
   /**
