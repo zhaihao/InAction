@@ -28,6 +28,7 @@
     
 * 设计模式
     * [生成器模式](v2.12/src/test/scala/me/ooon/ia/design/pattern/BuilderSpec.scala)
+    * [单例模式](v2.12/src/test/scala/me/ooon/ia/design/pattern/SingletonSpec.scala)
     
 * 其他
     * [网易公开课批量下载](v2.12/src/test/scala/me/ooon/ia/open163/DownloadClassVideo.scala)
