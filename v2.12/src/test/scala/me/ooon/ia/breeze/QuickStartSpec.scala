@@ -41,6 +41,7 @@ class QuickStartSpec extends BaseSpec {
     "访问向量的元素" in {
       val d = DenseVector(1, 2, 3, 4)
       // apply 偶尔会导致 scalac 崩溃 @see https://github.com/scalanlp/breeze/issues/65
+      d(2) ==> 3
       d.valueAt(2) ==> 3
     }
 

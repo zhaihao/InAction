@@ -19,5 +19,4 @@ import org.apache.spark.sql.SparkSession
 trait SparkBaseSpec extends BaseSpec {
   val spark = SparkSession.builder().appName("spark-test-spec").master("local[*]").getOrCreate()
   val sc    = spark.sparkContext
-  sc.setLogLevel("ERROR")
 }

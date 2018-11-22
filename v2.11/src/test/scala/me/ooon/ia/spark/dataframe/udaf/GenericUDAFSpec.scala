@@ -9,11 +9,11 @@ package me.ooon.ia.spark.dataframe.udaf
 
 import me.ooon.ia.spark.SparkBaseSpec
 import org.apache.spark.sql.Row
+import org.apache.spark.sql.catalyst.ScalaReflection.schemaFor
 import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
+import org.apache.spark.sql.types.StructType
 
 import scala.reflect.runtime.universe._
-import org.apache.spark.sql.catalyst.ScalaReflection.schemaFor
-import org.apache.spark.sql.types.StructType
 
 /**
   * GenericUDAFSpec
@@ -41,7 +41,7 @@ class GenericUDAFSpec extends SparkBaseSpec {
   }
 }
 
-case class MySum[T: TypeTag](implicit n: Numeric[T]) extends UserDefinedAggregateFunction {
+class MySum[T: TypeTag](implicit n: Numeric[T]) extends UserDefinedAggregateFunction {
 
   val dt = schemaFor[T].dataType
 

@@ -3,7 +3,7 @@ import Dependencies._
 lazy val CommonSettings = Seq(
   organization := "me.ooon",
   name         := "scalaia",
-  scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature", "-Xfatal-warnings"),
+  scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
   resolvers += "Local Maven Repository" at "file://" + Path.userHome.absolutePath + "/.m2/repository",
   resolvers += Resolver.url("ooon ivy repo", url("http://repo.ooon.me/release"))(
     Resolver.ivyStylePatterns),
@@ -26,8 +26,6 @@ lazy val `v2-12` = (project in file("v2.12"))
       upickle,
       mysql,
       h2,
-      scala_logging,
-      logback,
       better_file,
       playIteratees,
       playIterateesReactiveStreams,
@@ -36,6 +34,7 @@ lazy val `v2-12` = (project in file("v2.12"))
     libraryDependencies ++= cats,
     libraryDependencies ++= slick,
     libraryDependencies ++= akka,
+    libraryDependencies ++= log,
     libraryDependencies ++= breeze
   )
 
@@ -45,12 +44,17 @@ lazy val `v2-11` = (project in file("v2.11"))
     version      := "1.0.0",
     scalaVersion := "2.11.11",
     libraryDependencies ++= spark,
+    libraryDependencies ++= breeze,
+    libraryDependencies ++= log,
     libraryDependencies ++= Seq(
       xgboost_spark,
       graphframes,
       vegas,
       vegas_spark,
       redisclient,
+      play_json,
+      ujson,
       mysql
-    )
+    ),
+    excludeDependencies ++= exclude
   )
