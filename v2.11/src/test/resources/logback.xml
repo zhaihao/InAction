@@ -55,7 +55,8 @@
     <logger name="com.zaxxer.hikari.pool.HikariPool" level="INFO"/>
 
     <root level="ERROR">
-        <appender-ref ref="ASYNC_STDOUT"/>
+        <!--<appender-ref ref="ASYNC_STDOUT"/>-->
+        <appender-ref ref="STDOUT"/>
     </root>
 
 </configuration>
