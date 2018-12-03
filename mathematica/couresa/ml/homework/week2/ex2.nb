@@ -1,0 +1,120 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3651,        112]
+NotebookOptionsPosition[      2874,         93]
+NotebookOutlinePosition[      3240,        109]
+CellTagsIndexPosition[      3197,        106]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"data", "=", 
+  RowBox[{"Import", "[", 
+   RowBox[{
+   "\"\</Users/zhaihao/Code/scalaia/data/coursera/ex1data1.txt\>\"", ",", 
+    "\"\<CSV\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.752903171405243*^9, 
+  3.752903230166566*^9}},ExpressionUUID->"44ce6a81-3e6f-426d-ba05-\
+4c56ec744b56"],
+
+Cell[BoxData[
+ RowBox[{"f", "=", 
+  RowBox[{
+   RowBox[{"-", "3.6298120050247755"}], "+", 
+   RowBox[{"1.166314185951815", "x"}]}]}]], "Input",
+ CellChangeTimes->{{3.7529032573979797`*^9, 3.752903275646847*^9}, {
+   3.752904620434677*^9, 3.752904622685691*^9}, 3.752905079776784*^9, {
+   3.7529052438146057`*^9, 
+   3.7529052463154593`*^9}},ExpressionUUID->"cfef0783-e6a1-4708-ac05-\
+bbf444f2e606"],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{"f", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "20"}], "}"}]}], "]"}], ",", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"data", ",", 
+     RowBox[{"AxesOrigin", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.752903288650634*^9, 3.75290333736373*^9}, 
+   3.7529046499602613`*^9},ExpressionUUID->"897ff3db-f291-46f5-a87c-\
+941532d554e1"],
+
+Cell[BoxData[
+ RowBox[{"data1", "=", 
+  RowBox[{"Import", "[", 
+   RowBox[{
+   "\"\</Users/zhaihao/Code/scalaia/log/tmp1.csv\>\"", ",", "\"\<CSV\>\""}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.752903354199237*^9, 
+  3.752903376048444*^9}},ExpressionUUID->"401cfc78-f81d-4396-b850-\
+b093f988d77c"],
+
+Cell[BoxData[
+ RowBox[{"ListLinePlot", "[", 
+  RowBox[{"data1", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "4"}], "}"}]}], "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.752903386283848*^9, 
+  3.752903416023587*^9}},ExpressionUUID->"1ae632a0-053c-4afe-9920-\
+1ad30c74baa9"],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"ListPlot3D", "[", 
+    RowBox[{"data1", "[", 
+     RowBox[{"[", 
+      RowBox[{"All", ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "3", ",", "4"}], "}"}]}], "]"}], "]"}], "]"}], ",", 
+   
+   RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.75290343234824*^9, 
+  3.752903496609236*^9}},ExpressionUUID->"122cbf39-0a22-4b0d-aa27-\
+3b05788d6bca"]
+},
+WindowSize->{936, 794},
+WindowMargins->{{Automatic, 98}, {-8, Automatic}},
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (2017\:5e749\
+\:670810\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 315, 8, 44, "Input",ExpressionUUID->"44ce6a81-3e6f-426d-ba05-4c56ec744b56"],
+Cell[876, 30, 398, 9, 30, "Input",ExpressionUUID->"cfef0783-e6a1-4708-ac05-bbf444f2e606"],
+Cell[1277, 41, 511, 14, 44, "Input",ExpressionUUID->"897ff3db-f291-46f5-a87c-941532d554e1"],
+Cell[1791, 57, 301, 8, 44, "Input",ExpressionUUID->"401cfc78-f81d-4396-b850-b093f988d77c"],
+Cell[2095, 67, 327, 9, 44, "Input",ExpressionUUID->"1ae632a0-053c-4afe-9920-1ad30c74baa9"],
+Cell[2425, 78, 445, 13, 44, "Input",ExpressionUUID->"122cbf39-0a22-4b0d-aa27-3b05788d6bca"]
+}
+]
+*)
+

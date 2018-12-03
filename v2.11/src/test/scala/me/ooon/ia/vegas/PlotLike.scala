@@ -20,17 +20,19 @@ import vegas.DSL.ExtendedUnitSpecBuilder
 trait PlotLike extends TestSuiteMixin {
   this: TestSuite =>
 
-  var plot : ExtendedUnitSpecBuilder = _
+  var plot: ExtendedUnitSpecBuilder = _
 
   val buildInServerHost = "http://localhost:63342/"
 
   abstract override def withFixture(test: NoArgTest) = {
     try super.withFixture(test)
     finally {
-      val view = plot.html.pageHTML()
-      val pw = new PrintWriter(new File("vegas.html"))
-      pw.write(view)
-      pw.close()
+      if (plot != null) {
+        val view = plot.html.pageHTML()
+        val pw   = new PrintWriter(new File("log/vegas.html"))
+        pw.write(view)
+        pw.close()
+      }
     }
   }
 
