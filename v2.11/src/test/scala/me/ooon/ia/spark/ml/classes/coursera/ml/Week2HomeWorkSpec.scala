@@ -13,7 +13,6 @@ import breeze.linalg.DenseVector
 import com.typesafe.scalalogging.StrictLogging
 import me.ooon.base.syntax.id._
 import me.ooon.base.test.BaseSpec
-import me.ooon.ia.vegas.PlotLike
 
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
@@ -24,7 +23,7 @@ import scala.io.Source
   * @author zhaihao
   * @version 1.0 2018-11-30 17:56
   */
-class Week2HomeWorkSpec extends BaseSpec with PlotLike with StrictLogging {
+class Week2HomeWorkSpec extends BaseSpec with StrictLogging {
 
   import breeze.linalg._
 
@@ -93,7 +92,7 @@ class Week2HomeWorkSpec extends BaseSpec with PlotLike with StrictLogging {
       logger.info(predict(theta, DenseVector(1.0, 3.5)).toString)
       logger.info(predict(theta, DenseVector(1.0, 7.0)).toString)
 
-      val pw = new PrintWriter(new File("log/tmp1.csv"))
+      val pw = new PrintWriter(new File("log/history.csv"))
       history.foreach(iter => pw.println(iter.toCSV))
       pw.close()
 
@@ -157,10 +156,35 @@ class Week2HomeWorkSpec extends BaseSpec with PlotLike with StrictLogging {
       (_ds, scale)
     }
 
-    val (dataset, scale) = meanNormalization(ds)
+    val (_ds, scale) = meanNormalization(ds)
 
-    dataset.map(s => s.copy(xv = addColumn(s.xv, 1.0)))
+    val dataset = _ds.map(s => s.copy(xv = addColumn(s.xv, 1.0)))
 
+    val iterations = 5000
+    val alpha      = 0.1
+    var theta      = DenseVector(0.0, 0.0, 0.0)
+
+    val history = ArrayBuffer.empty[Iteration]
+
+    for (i <- 1 to iterations) {
+      val (_, cost, gradient) = compute(theta, dataset)
+      val iter                = Iteration(i, theta, cost)
+      history += iter
+      logger.info(iter.toString)
+      if (i != iterations) theta = theta - (gradient * alpha)
+    }
+
+    logger.info("final theta: " + theta)
+
+    val pw = new PrintWriter(new File("log/history.csv"))
+    history.foreach(iter => pw.println(iter.toCSV))
+    pw.close()
+
+    logger.info("mathematica 查看拟合函数，iter-cost，theta-cost 图")
+    logger.info(
+      predict(theta, addColumn(scaleFuture(scale, DenseVector(2400.0, 3.0), 2), 1.0)).toString)
+    logger.info(
+      predict(theta, addColumn(scaleFuture(scale, DenseVector(1416, 2), 2), 1.0)).toString)
   }
 }
 

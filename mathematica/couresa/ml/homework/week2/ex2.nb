@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      3651,        112]
-NotebookOptionsPosition[      2874,         93]
-NotebookOutlinePosition[      3240,        109]
-CellTagsIndexPosition[      3197,        106]
+NotebookDataLength[      3704,        113]
+NotebookOptionsPosition[      2927,         94]
+NotebookOutlinePosition[      3293,        110]
+CellTagsIndexPosition[      3250,        107]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -59,10 +59,11 @@ Cell[BoxData[
  RowBox[{"data1", "=", 
   RowBox[{"Import", "[", 
    RowBox[{
-   "\"\</Users/zhaihao/Code/scalaia/log/tmp1.csv\>\"", ",", "\"\<CSV\>\""}], 
-   "]"}]}]], "Input",
- CellChangeTimes->{{3.752903354199237*^9, 
-  3.752903376048444*^9}},ExpressionUUID->"401cfc78-f81d-4396-b850-\
+   "\"\</Users/zhaihao/Code/scalaia/log/history.csv\>\"", ",", 
+    "\"\<CSV\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.752903354199237*^9, 3.752903376048444*^9}, {
+  3.752910027666998*^9, 
+  3.752910028724815*^9}},ExpressionUUID->"401cfc78-f81d-4396-b850-\
 b093f988d77c"],
 
 Cell[BoxData[
@@ -111,9 +112,9 @@ Notebook[{
 Cell[558, 20, 315, 8, 44, "Input",ExpressionUUID->"44ce6a81-3e6f-426d-ba05-4c56ec744b56"],
 Cell[876, 30, 398, 9, 30, "Input",ExpressionUUID->"cfef0783-e6a1-4708-ac05-bbf444f2e606"],
 Cell[1277, 41, 511, 14, 44, "Input",ExpressionUUID->"897ff3db-f291-46f5-a87c-941532d554e1"],
-Cell[1791, 57, 301, 8, 44, "Input",ExpressionUUID->"401cfc78-f81d-4396-b850-b093f988d77c"],
-Cell[2095, 67, 327, 9, 44, "Input",ExpressionUUID->"1ae632a0-053c-4afe-9920-1ad30c74baa9"],
-Cell[2425, 78, 445, 13, 44, "Input",ExpressionUUID->"122cbf39-0a22-4b0d-aa27-3b05788d6bca"]
+Cell[1791, 57, 354, 9, 44, "Input",ExpressionUUID->"401cfc78-f81d-4396-b850-b093f988d77c"],
+Cell[2148, 68, 327, 9, 44, "Input",ExpressionUUID->"1ae632a0-053c-4afe-9920-1ad30c74baa9"],
+Cell[2478, 79, 445, 13, 44, "Input",ExpressionUUID->"122cbf39-0a22-4b0d-aa27-3b05788d6bca"]
 }
 ]
 *)
