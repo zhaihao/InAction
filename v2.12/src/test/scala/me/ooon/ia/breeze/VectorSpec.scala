@@ -8,7 +8,6 @@
 package me.ooon.ia.breeze
 import breeze.linalg.DenseVector
 import me.ooon.base.test.BaseSpec
-import me.ooon.base.syntax.id._
 
 /**
   * VectorSpec

@@ -186,6 +186,35 @@ class Week2HomeWorkSpec extends BaseSpec with StrictLogging {
     logger.info(
       predict(theta, addColumn(scaleFuture(scale, DenseVector(1416, 2), 2), 1.0)).toString)
   }
+
+  "3. Normal Equations" in {
+    val ds = Source
+      .fromFile("data/coursera/ex1data2.txt")
+      .getLines()
+      .toList
+      .map(line => {
+        val t = line.split(",").map(_.toDouble)
+        Sample(DenseVector(t(0), t(1)), t(2))
+      })
+
+    def addColumn(v: DenseVector[Double], a: Double) = DenseVector(v.data.+:(a))
+    val dataset = ds.map(s => s.copy(xv = addColumn(s.xv, 1.0)))
+
+    val X: DenseMatrix[Double] = DenseMatrix(dataset.map(_.xv): _*)
+    val y: DenseVector[Double] = DenseVector(dataset.map(_.y):  _*)
+
+    val theta = inv(X.t * X) * X.t * y
+    logger.info("theta: " + theta)
+
+    val cost = (y - X * theta).data.map(a => a * a).sum / (2 * ds.length)
+
+    logger.info("cost: " + cost)
+
+    def predict(theta: DenseVector[Double], xv: DenseVector[Double]) = theta.dot(xv)
+
+    logger.info(predict(theta, addColumn(DenseVector(2400.0, 3.0), 1.0)).toString)
+    logger.info(predict(theta, addColumn(DenseVector(1416.0, 2), 1.0)).toString)
+  }
 }
 
 case class P(x: Double, y: Double)

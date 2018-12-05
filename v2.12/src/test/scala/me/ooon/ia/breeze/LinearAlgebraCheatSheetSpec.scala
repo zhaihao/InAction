@@ -69,13 +69,15 @@ class LinearAlgebraCheatSheetSpec extends BaseSpec {
 
     "通过函数构造向量" in {
       DenseVector.tabulate(5) {
-        i => i * 3
+        i =>
+      i * 3
       } |> println
     }
 
     "通过函数构造矩阵" in {
       DenseMatrix.tabulate(3, 4) {
-        (i, j) => i + j
+        (i, j) =>
+      i + j
       } |> println
     }
 
