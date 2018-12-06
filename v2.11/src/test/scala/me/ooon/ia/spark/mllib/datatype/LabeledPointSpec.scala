@@ -7,6 +7,7 @@
 
 package me.ooon.ia.spark.mllib.datatype
 
+import me.ooon.ia.spark.ml.MLDataFile
 import me.ooon.ia.spark.{SparkBaseSpec, TmpFileSpec}
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.regression.LabeledPoint
@@ -35,7 +36,8 @@ class LabeledPointSpec extends SparkBaseSpec with TmpFileSpec {
 
   // label index1:value1 index2:value2 ...
   "labeled point 通用的存储格式 LIBSVM" in {
-    val lps: RDD[LabeledPoint] = MLUtils.loadLibSVMFile(sc, "data/sample_libsvm_data.txt")
+    val dataFile = MLDataFile("data/sample_libsvm_data.txt")
+    val lps: RDD[LabeledPoint] = MLUtils.loadLibSVMFile(sc, dataFile.getPath)
     lps.take(3).foreach(println)
     // 也可以存储
     MLUtils.saveAsLibSVMFile(lps, TmpFile)

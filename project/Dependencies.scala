@@ -53,7 +53,7 @@ object Dependencies {
     "org.typelevel" %% "cats-core" % "1.4.0"
   )
 
-  lazy val base                         = "me.ooon"              %% "base"                            % "1.0.27"
+  lazy val base = "me.ooon" %% "base" % "1.0.28"
   lazy val scalatest                    = "org.scalatest"        %% "scalatest"                       % "3.0.4" % Test
   lazy val xgboost_spark                = "ml.dmlc"              % "xgboost4j-spark"                  % "0.80"
   lazy val graphframes                  = "org.graphframes"      % "graphframes_2.11"                 % "0.7.0-spark2.3-SNAPSHOT"
@@ -70,7 +70,7 @@ object Dependencies {
   lazy val play_json                    = "com.typesafe.play"    %% "play-json"                       % "2.6.10"
   lazy val ujson                        = "com.lihaoyi"          %% "ujson"                           % "0.7.1"
 
-  val exclude = Seq(
+  val excludes = Seq(
     ExclusionRule("com.sun.jersey"),
     ExclusionRule("com.sun.jersey.contribs"),
     ExclusionRule("javax.servlet.jsp", "jsp-api"),
@@ -78,6 +78,10 @@ object Dependencies {
     ExclusionRule("org.mortbay.jetty", "servlet-api"),
     ExclusionRule("org.slf4j", "slf4j-log4j12"),
     ExclusionRule("log4j", "log4j")
+  )
+
+  val overrides = Seq(
+    "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.8.11"
   )
 
 }

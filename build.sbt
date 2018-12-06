@@ -56,5 +56,6 @@ lazy val `v2-11` = (project in file("v2.11"))
       ujson,
       mysql
     ),
-    excludeDependencies ++= exclude
+    excludeDependencies ++= excludes,
+    dependencyOverrides ++= overrides
   )

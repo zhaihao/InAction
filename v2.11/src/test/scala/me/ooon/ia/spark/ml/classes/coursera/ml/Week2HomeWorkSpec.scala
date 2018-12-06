@@ -13,6 +13,7 @@ import breeze.linalg.DenseVector
 import com.typesafe.scalalogging.StrictLogging
 import me.ooon.base.syntax.id._
 import me.ooon.base.test.BaseSpec
+import me.ooon.ia.spark.ml.MLDataFile
 
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
@@ -39,8 +40,9 @@ class Week2HomeWorkSpec extends BaseSpec with StrictLogging {
 
     "2.2 Gradient Descent" in {
 
+      val dataFile = MLDataFile("data/coursera/ex1data1.txt")
       val ds = Source
-        .fromFile("data/coursera/ex1data1.txt")
+        .fromFile(dataFile.getPath)
         .getLines()
         .toList
         .map(_.split(",").map(_.toDouble))
@@ -101,8 +103,9 @@ class Week2HomeWorkSpec extends BaseSpec with StrictLogging {
   }
 
   "3.Linear regression with multiple variables" in {
+    val dataFile = MLDataFile("data/coursera/ex1data2.txt")
     val ds = Source
-      .fromFile("data/coursera/ex1data2.txt")
+      .fromFile(dataFile.getPath)
       .getLines()
       .toList
       .map(line => {
@@ -188,8 +191,9 @@ class Week2HomeWorkSpec extends BaseSpec with StrictLogging {
   }
 
   "3. Normal Equations" in {
+    val dataFile = MLDataFile("data/coursera/ex1data2.txt")
     val ds = Source
-      .fromFile("data/coursera/ex1data2.txt")
+      .fromFile(dataFile.getPath)
       .getLines()
       .toList
       .map(line => {

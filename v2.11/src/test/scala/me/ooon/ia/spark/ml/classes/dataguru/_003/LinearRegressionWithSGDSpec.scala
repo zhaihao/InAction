@@ -8,6 +8,7 @@
 package me.ooon.ia.spark.ml.classes.dataguru._003
 import com.typesafe.scalalogging.StrictLogging
 import me.ooon.ia.spark.SparkBaseSpec
+import me.ooon.ia.spark.ml.MLDataFile
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.regression.{LabeledPoint, LinearRegressionWithSGD}
 import org.apache.spark.sql.Dataset
@@ -26,8 +27,9 @@ class LinearRegressionWithSGDSpec extends SparkBaseSpec with StrictLogging {
 
   "demo" in {
     import spark.implicits._
+    val dataFile = MLDataFile("data/lpsa.data")
     val ds: Dataset[LabeledPoint] = spark.read
-      .textFile("data/lpsa.data")
+      .textFile(dataFile.getPath)
       .map(line => {
         val tmp      = line.split(",")
         val label    = tmp(0).toDouble

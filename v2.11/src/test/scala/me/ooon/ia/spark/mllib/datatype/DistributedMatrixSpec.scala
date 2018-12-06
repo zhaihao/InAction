@@ -8,9 +8,9 @@
 package me.ooon.ia.spark.mllib.datatype
 
 import me.ooon.ia.spark.SparkBaseSpec
+import me.ooon.ia.spark.ml.MLDataFile
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.linalg.distributed._
-import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.mllib.util.MLUtils
 import org.apache.spark.rdd.RDD
 
@@ -47,7 +47,8 @@ class DistributedMatrixSpec extends SparkBaseSpec {
   }
 
   "矩阵的统计摘要信息" in {
-    val lps: RDD[LabeledPoint] = MLUtils.loadLibSVMFile(sc, "data/sample_libsvm_data.txt")
+    val dataFile                = MLDataFile("data/sample_libsvm_data.txt")
+    val lps                     = MLUtils.loadLibSVMFile(sc, dataFile.getPath)
     val rdd                     = lps.map(_.features)
     val matrix                  = new RowMatrix(rdd)
     val columnSummaryStatistics = matrix.computeColumnSummaryStatistics()

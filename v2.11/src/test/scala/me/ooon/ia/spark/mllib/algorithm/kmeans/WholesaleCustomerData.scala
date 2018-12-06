@@ -9,6 +9,7 @@ package me.ooon.ia.spark.mllib.algorithm.kmeans
 
 import java.io.{File, PrintWriter}
 
+import me.ooon.ia.spark.ml.MLDataFile
 import me.ooon.ia.spark.{SparkBaseSpec, TmpFileSpec}
 import org.apache.spark.mllib.clustering.KMeans
 import org.apache.spark.mllib.linalg.Vectors
@@ -30,8 +31,9 @@ import org.apache.spark.mllib.linalg.Vectors
   */
 class WholesaleCustomerData extends SparkBaseSpec with TmpFileSpec {
 
-  val rdd = sc
-    .textFile("data/Wholesale customers data.csv")
+  val dataFile = MLDataFile("data/Wholesale customers data.csv")
+
+  val rdd = sc.textFile(dataFile.getPath)
     .filter(line => if (line != null && line.contains("Channel")) false else true)
     .map(_.split(",").map(_.toDouble))
     .map(Vectors.dense)
@@ -51,10 +53,10 @@ class WholesaleCustomerData extends SparkBaseSpec with TmpFileSpec {
       * random seed 集群随机初始化
       */
     val kMeansModel = KMeans.train(data = train_data,
-                                   k                  = 8,
-                                   maxIterations      = 30,
+                 k = 8,
+                 maxIterations = 30,
                                    initializationMode = "k-means||",
-                                   seed               = 1L)
+                 seed = 1L)
     println("Cluster Number: " + kMeansModel.clusterCenters.length) //聚类个数
 
     println("Cluster Centers Information Overview: ")
@@ -76,11 +78,8 @@ class WholesaleCustomerData extends SparkBaseSpec with TmpFileSpec {
   "合理选择 k 的个数" in {
 
     val res = (3 to 40).map(_k => {
-      val kMeansModel = KMeans.train(data = rdd,
-                                     k                  = _k,
-                                     maxIterations      = 30,
-                                     initializationMode = "k-means||",
-                                     seed               = 1L)
+      val kMeansModel = KMeans.train(data = rdd, k = _k, maxIterations = 30,
+                                     initializationMode = "k-means||", seed = 1L)
       val d = kMeansModel.computeCost(rdd) / 10E9
       println((_k, d))
       (_k, d)
