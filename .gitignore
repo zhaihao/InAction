@@ -2,7 +2,7 @@
 .idea
 target
 .DS_Store
-vegas.html
 test.sc
 tmp
 log
+data
