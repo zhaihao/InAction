@@ -17,7 +17,7 @@ object Dependencies {
 
   lazy val base = "me.ooon" %% "base" % "1.0.29"
 
-  val spark_version = "2.3.2"
+  val spark_version = "2.4.0"
   val akka_version  = "2.5.14"
 
   lazy val spark = Seq(

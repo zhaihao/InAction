@@ -1,4 +1,5 @@
 import Dependencies._
+import sbt.Keys.excludeDependencies
 
 lazy val CommonSettings = Seq(
   organization := "me.ooon",
@@ -31,31 +32,7 @@ lazy val `v2-12` = (project in file("v2.12"))
       playIterateesReactiveStreams,
       scraper
     ),
-    libraryDependencies ++= cats,
-    libraryDependencies ++= slick,
-    libraryDependencies ++= akka,
-    libraryDependencies ++= log,
-    libraryDependencies ++= breeze
-  )
-
-lazy val `v2-11` = (project in file("v2.11"))
-  .settings(CommonSettings)
-  .settings(
-    version      := "1.0.0",
-    scalaVersion := "2.11.11",
-    libraryDependencies ++= spark,
-    libraryDependencies ++= breeze,
-    libraryDependencies ++= log,
-    libraryDependencies ++= Seq(
-      xgboost_spark,
-      graphframes,
-      vegas,
-      vegas_spark,
-      redisclient,
-      play_json,
-      ujson,
-      mysql
-    ),
+    libraryDependencies ++= Seq(spark, cats, slick, akka, log, breeze).flatten,
     excludeDependencies ++= excludes,
     dependencyOverrides ++= overrides
   )
