@@ -15,6 +15,8 @@ import sbt._
   */
 object Dependencies {
 
+  lazy val base = "me.ooon" %% "base" % "1.0.29"
+
   val spark_version = "2.3.2"
   val akka_version  = "2.5.14"
 
@@ -53,7 +55,6 @@ object Dependencies {
     "org.typelevel" %% "cats-core" % "1.4.0"
   )
 
-  lazy val base = "me.ooon" %% "base" % "1.0.28"
   lazy val scalatest                    = "org.scalatest"        %% "scalatest"                       % "3.0.4" % Test
   lazy val xgboost_spark                = "ml.dmlc"              % "xgboost4j-spark"                  % "0.80"
   lazy val graphframes                  = "org.graphframes"      % "graphframes_2.11"                 % "0.7.0-spark2.3-SNAPSHOT"

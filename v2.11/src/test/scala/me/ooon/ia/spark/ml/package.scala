@@ -17,6 +17,7 @@ import me.ooon.base.io.CanDownloadFile
 package object ml {
   val dataServer = "http://h.ooon.me/"
 
+  // 如果数据文件不存在，可以自动下载文件到 data 目录,需要保持 dataServer 的目录结构
   class MLDataFile(path: String) extends CanDownloadFile(path, ml.dataServer + path)
 
   object MLDataFile {
